@@ -1,0 +1,41 @@
+
+#ansible adhoc commands
+
+ansible all -m ping #once run this cmd it will show all worker nodes and master node (starting asible means its user of master and worker nodes)
+
+ansible 192.168.116.137 -m ping #to check only certain server
+
+ansible dev -m ping # to check only certain group ( one group contains one or more servers)
+
+ansible all -b -a "ls -l /opt" #LIST all files inside opt directory
+
+ansible dev -b -a "ls -l /opt" #LIST all files inside opt directory in dev group
+
+ansible 192.168.116.137 -b -a "ls -l /opt" #LIST all files inside opt directory in certain sever
+
+ansible dev -b -a "touch /opt/ansible" #create ansible file inside opt directory
+
+ansible dev -b -a "rm -rf /opt/ansible" #delete ansible file inside opt directory
+
+ansible all -b -a "yum install wget -y" #install wget package in all nodes
+
+ansible all -b -a "git --version"
+
+ansible all -b -a "service jenkins status"
+
+
+#ansible modules
+
+#ansible all -m yum -b -a "name=package state=present"
+ansible all -m yum -b -a "name=git state=present" #install git
+
+ansible all -m yum -b -a "name=git state=absent" #uninstall git
+
+ansible all -m service -b -a "name=jenkins state=restarted" #uninstall git
+
+ansible all -m copy -b -a "src=/opt/jenkins.war dest=/home" #copy jenkins.war file from opt folder to /home folder
+
+ansible all -m file -b -a "path=/opt/abc123 state=touch" #creating abc123 file inside opt folder
+
+
+
