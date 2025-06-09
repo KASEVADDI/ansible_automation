@@ -1,0 +1,27 @@
+# install_packages.yml
+- name: Install multiple packages
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Install packages
+      yum:
+        name:
+          - git
+          - wget
+          - unzip
+        state: present
+# uninstall_packages.yml
+- name: Uninstall multiple packages
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Remove packages using yum
+      yum:
+        name:
+          - git
+          - wget
+          - curl
+        state: absent
+
