@@ -1,0 +1,18 @@
+# install_nginx.yml
+- name: Install NGINX on Linux ansible master node and worker nodes
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Install NGINX
+      yum:
+        name: nginx
+        state: present
+
+    - name: Start NGINX
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+## run playbook using below command
+ansible-playbook playbook1.yaml (playbookname)
