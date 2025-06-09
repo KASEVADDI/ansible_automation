@@ -1,0 +1,15 @@
+
+# create_file.yml
+- name: Create a file on target server
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Create file /tmp/demo.txt
+      copy:
+        content: "Welcome to Ansible practice!\n"
+        dest: /tmp/demo.txt
+
+
+# Run playbook using below command
+ansible-playbook createfile.yaml
