@@ -15,4 +15,4 @@
         state: started
         enabled: yes
 ## run playbook using below command
-ansible-playbook playbook1.yaml (playbookname)
+ansible-playbook playbook1.yaml #(playbookname)
